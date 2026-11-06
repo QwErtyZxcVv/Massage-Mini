@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yulia Andreevna — массаж в Каунасе</title>
+    <meta name="description" content="Массаж в Каунасе: услуги, цены и запись к Yulia Andreevna через Telegram.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #FAF6F0;
+            --card-bg: #FFFFFF;
+            --accent-gold: #806344;
+            --accent-green: #435B50;
+            --text-main: #2C2825;
+            --text-muted: #6E6862;
+            --border: #E8DFD5;
+            --shadow: 0 18px 48px rgba(44, 40, 37, 0.07);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background:
+                radial-gradient(ellipse at 50% 0, rgba(196, 164, 132, 0.14), transparent 34rem),
+                var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 30px 16px;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 460px;
+            text-align: center;
+        }
+
+        /* TOP BAR WITH LOGO & LANG */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            padding: 0 6px;
+        }
+
+        .logo-small {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-small img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: #FFF;
+        }
+
+        .logo-small span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .lang-switch {
+            background: #FFF;
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-green);
+            min-width: 42px;
+            min-height: 34px;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .lang-switch:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+        /* PROFILE SECTION */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 28px;
+            padding: 34px 22px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            object-fit: cover;
+            margin: 0 auto 18px;
+            display: block;
+            padding: 3px;
+            background: #FFF;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            line-height: 1.05;
+            margin-bottom: 7px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #F4ECE2;
+            color: var(--accent-green);
+            font-size: 10px;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            min-height: 54px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:active { transform: translateY(1px); }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(67, 91, 80, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #344A40;
+            box-shadow: 0 10px 24px rgba(52, 74, 64, 0.24);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.84);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 20px rgba(44, 40, 37, 0.06);
+            transform: translateY(-2px);
+        }
+
+        :focus-visible {
+            outline: 3px solid rgba(67, 91, 80, 0.55);
+            outline-offset: 3px;
+        }
+
+        /* PRICES BOX */
+        .prices-box {
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 22px;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .prices-box h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            font-size: 13px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .price-row:last-child { border-bottom: none; }
+        .price-num { font-weight: 600; color: var(--accent-green); white-space: nowrap; }
+
+        .packages-box {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            padding: 22px 24px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .packages-box h2 {
+            color: var(--accent-green);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .package-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .package-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .package-row h3 {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 3px;
+        }
+
+        .package-row p {
+            color: var(--text-muted);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .package-time {
+            color: var(--accent-green);
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            padding-top: 2px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 24px;
+            padding-bottom: 8px;
+        }
+
+        @media (max-width: 380px) {
+            body { padding: 20px 12px; }
+            .profile-card { padding: 28px 16px; }
+            .prices-box, .packages-box { padding: 18px; }
+            .price-row { font-size: 12px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- TOP BAR: LOGO & LANG SWITCH -->
+    <div class="top-bar">
+        <div class="logo-small">
+            <img src="img/Logo.jpg" alt="Logo">
+            <span>YA</span>
+        </div>
+        <button class="lang-switch" type="button" onclick="toggleLanguage()" id="langBtn" aria-label="Переключить язык">EN</button>
+    </div>
+
+    <!-- PROFILE CARD -->
+    <div class="profile-card">
+        <img src="img/Master.jpg" alt="Yulia Andreevna" class="profile-img" decoding="async">
+        <h1>Yulia Andreevna</h1>
+        <div class="subtitle" data-ru="Массажист • Каунас" data-en="Massage therapist • Kaunas">Массажист • Каунас</div>
+        <div class="badge" data-ru="✦ Мастер с медицинским образованием" data-en="✦ Massage therapist with medical training">✦ Мастер с медицинским образованием</div>
+    </div>
+
+    <!-- ACTIONS -->
+    <a href="https://t.me/yulia_andreevna_massage" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-ru="💬 Записаться в Telegram" data-en="💬 Book via Telegram">
+        💬 Записаться в Telegram
+    </a>
+    
+    <a href="https://www.instagram.com/yulia_andreevna_massage" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-ru="📸 Instagram и отзывы" data-en="📸 Instagram & Reviews">
+        📸 Instagram и отзывы
+    </a>
+
+    <!-- PRICE LIST -->
+    <div class="prices-box">
+        <h2 data-ru="Прайс-лист" data-en="Price List">Прайс-лист</h2>
+        <div class="price-row"><span data-ru="«Стоп Боль» (30/60 мин)" data-en="«Stop Pain» (30/60 min)">«Стоп Боль» (30/60 мин)</span> <span class="price-num">30 / 40 €</span></div>
+        <div class="price-row"><span data-ru="Расслабляющий (60 мин)" data-en="Relaxing (60 min)">Расслабляющий (60 мин)</span> <span class="price-num">40 €</span></div>
+        <div class="price-row"><span data-ru="Миофасциальный лица (60 мин)" data-en="Myofascial Facial (60 min)">Миофасциальный лица (60 мин)</span> <span class="price-num">30 €</span></div>
+        <div class="price-row"><span data-ru="Лимфодренажный (60 мин)" data-en="Lymphatic Drainage (60 min)">Лимфодренажный (60 мин)</span> <span class="price-num">30 €</span></div>
+        <div class="price-row"><span data-ru="Стоунтерапия (60 мин)" data-en="Hot Stone Therapy (60 min)">Стоунтерапия (60 мин)</span> <span class="price-num">40 €</span></div>
+        <div class="price-row"><span data-ru="Антицеллюлитный (60 мин)" data-en="Anti-Cellulite (60 min)">Антицеллюлитный (60 мин)</span> <span class="price-num">40 €</span></div>
+    </div>
+
+    <div class="packages-box">
+        <h2 data-ru="Комплексные программы" data-en="Massage Packages">Комплексные программы</h2>
+        <div class="package-row">
+            <div>
+                <h3 data-ru="Лицо + лимфодренаж" data-en="Facial + lymphatic drainage">Лицо + лимфодренаж</h3>
+                <p data-ru="Миофасциальный массаж лица и лимфодренаж тела" data-en="Myofascial facial massage and full-body lymphatic drainage">Миофасциальный массаж лица и лимфодренаж тела</p>
+            </div>
+            <span class="package-time" data-ru="120 мин" data-en="120 min">120 мин</span>
+        </div>
+        <div class="package-row">
+            <div>
+                <h3 data-ru="Стоп-Боль + голова" data-en="Stop Pain + head massage">Стоп-Боль + голова</h3>
+                <p data-ru="Массаж спины «Стоп-Боль» и массаж головы" data-en="Back massage «Stop Pain» and head massage">Массаж спины «Стоп-Боль» и массаж головы</p>
+            </div>
+            <span class="package-time" data-ru="60 мин" data-en="60 min">60 мин</span>
+        </div>
+        <div class="package-row">
+            <div>
+                <h3 data-ru="Стоп-Боль + лимфодренаж" data-en="Stop Pain + lymphatic drainage">Стоп-Боль + лимфодренаж</h3>
+                <p data-ru="Массаж спины «Стоп-Боль» и лимфодренажный массаж" data-en="Back massage «Stop Pain» and lymphatic drainage massage">Массаж спины «Стоп-Боль» и лимфодренажный массаж</p>
+            </div>
+            <span class="package-time" data-ru="100 мин" data-en="100 min">100 мин</span>
+        </div>
+    </div>
+
+    <a href="https://www.google.com/maps/search/?api=1&query=V.+Kr%C4%93v%C4%97s+pr.+87%2C+50365+Kaunas" class="btn btn-secondary" target="_blank" data-ru="📍 V. Krėvės pr. 87, Kaunas (Карта)" data-en="📍 V. Krėvės pr. 87, Kaunas (Map)">
+        📍 V. Krėvės pr. 87, Kaunas (Карта)
+    </a>
+
+    <div class="footer-note">
+        © 2026 Yulia Andreevna Massage
+    </div>
+</div>
+
+<!-- LANGUAGE SCRIPT -->
+<script>
+    let currentLang = 'ru';
+    function toggleLanguage() {
+        currentLang = currentLang === 'ru' ? 'en' : 'ru';
+        document.documentElement.lang = currentLang;
+        document.getElementById('langBtn').innerText = currentLang === 'ru' ? 'EN' : 'RU';
+        document.getElementById('langBtn').setAttribute(
+            'aria-label',
+            currentLang === 'ru' ? 'Переключить язык' : 'Switch language'
+        );
+        
+        document.querySelectorAll('[data-ru]').forEach(el => {
+            el.innerText = el.getAttribute(`data-${currentLang}`);
+        });
+    }
+</script>
+
+</body>
+</html>
